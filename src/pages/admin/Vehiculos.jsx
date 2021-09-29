@@ -46,7 +46,7 @@ const Vehiculos = () => {
             <h2 className='text-3xl'>Pagina admin vehiculos</h2>
             <button onClick={()=>{setMostrarTabla(!mostrarTabla)}} className='text-white bg-indigo-500 p-5' type='button'>{textBoton}</button>
             {
-                mostrarTabla ? (<TablaVehiculos listaVehiculos={vehiculos}/>):(<FormularioVehiculos/>)
+                mostrarTabla ? (<TablaVehiculos listaVehiculos={vehiculos}/>):(<FormularioVehiculos/>)//Se agrega dentro del componente la lista
             }            
         </div>              
     )
