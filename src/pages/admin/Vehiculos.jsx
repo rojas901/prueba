@@ -2,40 +2,33 @@ import React, { useEffect, useState } from 'react'
 
 const Vehiculos = () => {
 
-    //estado, es una variable constantemente cambiando
+    //realizar formulario que pida edad y diga si es mayor o menor
 
-    const [nombreVehiculo, setNombreVehiculo] = useState("valor inicial");//dentro de los corchetes viene una variable que hace de getter y tiene la informacion, y un metodo setter para cambiarla, y dentro del usestate el estado inicial
+    const [edad, setEdad] = useState(0);//dentro de los corchetes viene una variable que hace de getter y tiene la informacion, y un metodo setter para cambiarla, y dentro del usestate el estado inicial
+    const [esMenor, setEsMenor] = useState(false); //Esta variable almacena el estado en booleano para renderizar abajo
 
-    useEffect(()=>{//si no hay argumentos o dependencias dentro de los corchetes solo se ejecuta una vez al abrir la pagina o se actualice
-        console.log('Hola, soy un effect');
-    },[]);
-
-    useEffect(()=>{//responde cada vez que se va cambiando la variable nombre vehiculo
-        console.log("cambia cada que cambia la variable vehiculo")
-        console.log("nombre vehiculo: ", nombreVehiculo)
-    },[nombreVehiculo])
-
-    // useEffect(()=>{
-    //     console.log('me ejecuto siempre lo que puede ocasionar un bucle infinito')
-    // })
-  
+    useEffect(()=>{
+        if(edad >= 18){
+            setEsMenor(false)
+        }else{
+            setEsMenor(true)
+        } 
+    },[edad])
+          
     return (
         <div className='flex w-full justify-center items-center bg-green-500'>
             <form className='flex flex-col'>
-            <h2 className='font-extrabold'>Formulario creacion vehiculos</h2>
-            <input onChange={(e)=>{//esta funcion flecha me permite capturar todo lo que ingres por los inputs, e es una variable cualquiera, al incluir la funcion set cambia varaibles
-                setNombreVehiculo(e.target.value)
-            }} value={nombreVehiculo} //esta variable me ayuda para que salga el valor inicial del usestate
-            className='p-1 mb-1 rounded-md focus:ring-4 focus:outline-none' type="text" placeholder='Nombre vehiculo'/>
-            <input onChange={(e)=>{
-                console.log(e.target.value)
-            }} className='p-1 mb-1 rounded-md focus:ring-4 focus:outline-none' type="text" placeholder= 'Marca vehiculo'/>
-            <input onChange={(e)=>{
-                console.log(e.target.value)
-            }} className='p-1 mb-1 rounded-md focus:ring-4 focus:outline-none' type="text" placeholder= 'Modelo vehiculo'/>
-            <button onClick={(e)=>{//esta funcion on click me ayuda a mostra lo que se esta guardando en nombre vehiculo
-                console.log('el valor de nombre vehiculo: ', nombreVehiculo)
-            }} type='button' className='bg-indigo-500 rounded-xl mt-2 hover:bg-indigo-800'>Enviar datos</button>
+            <h2 className='font-extrabold'>Formulario edad</h2>
+            <label htmlFor="edad">
+                ingresa tu edad
+            </label>
+            <input value={edad} onChange={(e)=>{
+                setEdad(e.target.value)
+            }} type="number" name="edad"/>
+            {//Entre llaves puedo usar codigo javascript y uso un operado ternario para renderizar lo que necesito
+                esMenor ? (<span className='text-3xl text-red-600'>Usted es menor de edad</span>)
+                :(<span className='text-3xl text-purple-600'>Usted es mayor de edad</span>)
+            }            
             </form>
         </div>
         
