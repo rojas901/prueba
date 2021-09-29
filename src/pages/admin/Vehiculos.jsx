@@ -4,32 +4,27 @@ const Vehiculos = () => {
 
     //realizar formulario que pida edad y diga si es mayor o menor
 
-    const [edad, setEdad] = useState(0);//dentro de los corchetes viene una variable que hace de getter y tiene la informacion, y un metodo setter para cambiarla, y dentro del usestate el estado inicial
-    const [esMenor, setEsMenor] = useState(false); //Esta variable almacena el estado en booleano para renderizar abajo
+    
+    const [mostrarCampos, setMostrarCampos] = useState(false)
 
-    useEffect(()=>{
-        if(edad >= 18){
-            setEsMenor(false)
-        }else{
-            setEsMenor(true)
-        } 
-    },[edad])
-          
+    //Se usa la negacion dentro del onclick para hacer un toggle y que cada vez que oprima cambe de estado y aparezca y desaparezcan los campos     
     return (
         <div className='flex w-full justify-center items-center bg-green-500'>
             <form className='flex flex-col'>
-            <h2 className='font-extrabold'>Formulario edad</h2>
-            <label htmlFor="edad">
-                ingresa tu edad
-            </label>
-            <input value={edad} onChange={(e)=>{
-                setEdad(e.target.value)
-            }} type="number" name="edad"/>
-            {//Entre llaves puedo usar codigo javascript y uso un operado ternario para renderizar lo que necesito
-                esMenor ? (<span className='text-3xl text-red-600'>Usted es menor de edad</span>)
-                :(<span className='text-3xl text-purple-600'>Usted es mayor de edad</span>)
-            }            
+            <h2 className='font-extrabold'>Mostrar campos</h2>
+                        
+            <button type='button' onClick={()=>{setMostrarCampos(!mostrarCampos)}} className='bg-indigo-50'>Adicionar campo</button>        
+            {
+                mostrarCampos && ( //declaracion if simple
+                <div>
+                    <input className='focus-within:outline-none border bg-gray-200 my2 p-3' placeholder='dato nuevo' type="text" />
+                    <input className='focus-within:outline-none border bg-gray-200 my2 p-3' placeholder='dato nuevo' type="text" />
+                    <input className='focus-within:outline-none border bg-gray-200 my2 p-3' placeholder='dato nuevo' type="text" />
+                    <input className='focus-within:outline-none border bg-gray-200 my2 p-3' placeholder='dato nuevo' type="text" />
+                </div>
+            )}
             </form>
+            
         </div>
         
     )
