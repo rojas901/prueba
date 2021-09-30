@@ -28,6 +28,7 @@ const Vehiculos = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true)
     const [textBoton, setTextBoton] = useState('Crear vehiculo')
     const [vehiculos, setVehiculos] = useState([])//guarda lo que trae el backend
+    const [colorBoton, setColorBoton] = useState('indigo')
 
     useEffect(()=>{//vacio que me trae el arreglo
         setVehiculos(vehiculosBack)
@@ -36,15 +37,18 @@ const Vehiculos = () => {
     useEffect(()=>{
         if(mostrarTabla){
             setTextBoton('Mostrar vehiculos')
+            setColorBoton('indigo')
         }else{
             setTextBoton('Crear nuevo vehiculo')
+            setColorBoton('red')
         }
     },[mostrarTabla])
 
+ 
     return (
         <div className='flex flex-col items-center justify-center w-full'>
             <h2 className='text-3xl'>Pagina admin vehiculos</h2>
-            <button onClick={()=>{setMostrarTabla(!mostrarTabla)}} className='text-white bg-indigo-500 p-5' type='button'>{textBoton}</button>
+            <button onClick={()=>{setMostrarTabla(!mostrarTabla)}} className={`text-white bg-${colorBoton}-500 p-5' type='button`}>{textBoton}</button>
             {
                 mostrarTabla ? (<TablaVehiculos listaVehiculos={vehiculos}/>):(<FormularioVehiculos/>)//establece los vehiculos en la tabla
             }            
