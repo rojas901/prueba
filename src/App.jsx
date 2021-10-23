@@ -1,7 +1,7 @@
 import Login from 'pages/Login';
 import Registro from 'pages/Registro';
 import Index from 'pages/Index';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css';
 import PublicLayout from 'layout/PublicLayout';
 import PrivateLayout from 'layout/PrivateLayout';
@@ -9,6 +9,7 @@ import AuthLayout from 'layout/AuthLayout';
 import Admin from 'pages/admin/Admin';
 import Vehiculos from 'pages/admin/Vehiculos';
 import Clientes from 'pages/admin/Clientes';
+import Ejercicio2 from 'pages/Ejercicio2'
 
 
 function App() {
@@ -19,13 +20,13 @@ function App() {
           <PrivateLayout>
             <Switch>
               <Route path='/admin/vehiculos'>
-                <Vehiculos/>
+                <Vehiculos />
               </Route>
-              <Route path = '/admin/clientes'>
-                <Clientes/>
+              <Route path='/admin/clientes'>
+                <Clientes />
               </Route>
               <Route paht='/admin'>
-                <Admin/>
+                <Admin />
               </Route>
             </Switch>
           </PrivateLayout>
@@ -34,10 +35,10 @@ function App() {
           <AuthLayout>
             <Switch>
               <Route path='/login'>
-                <Login/>
+                <Login />
               </Route>
               <Route path='/registro'>
-                <Registro/>
+                <Registro />
               </Route>
             </Switch>
           </AuthLayout>
@@ -45,8 +46,11 @@ function App() {
         <Route path={['/']}>
           <PublicLayout>
             <Switch>
+              <Route path='/ejercicio2'>
+                <Ejercicio2 />
+              </Route>
               <Route path='/'>
-                <Index/>
+                <Index />
               </Route>
             </Switch>
           </PublicLayout>

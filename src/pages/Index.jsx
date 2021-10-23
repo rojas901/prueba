@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Mensaje from 'components/Mensaje'
 
 const Index = () => {
 
@@ -19,7 +20,7 @@ const Index = () => {
             onClick={()=>{setContador(0)}}>
                 reset
             </button>
-            <div>{contador}</div>
+            <Mensaje contadorInicial={contador} />
             <small>{esPar?'Es par':'Es impar'}</small>
         </div>
     )
