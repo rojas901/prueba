@@ -10,6 +10,7 @@ import Admin from 'pages/admin/Admin';
 import Vehiculos from 'pages/admin/Vehiculos';
 import Clientes from 'pages/admin/Clientes';
 import Ejercicio2 from 'pages/Ejercicio2'
+import Ejercicio2opt from 'pages/Ejercicio2opt';
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
             <Switch>
               <Route path='/ejercicio2'>
                 <Ejercicio2 />
+              </Route>
+              <Route path='/ejercicio2opt'>
+                <Ejercicio2opt />
               </Route>
               <Route path='/'>
                 <Index />
