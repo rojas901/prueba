@@ -11,6 +11,7 @@ import Vehiculos from 'pages/admin/Vehiculos';
 import Clientes from 'pages/admin/Clientes';
 import Ejercicio2 from 'pages/Ejercicio2'
 import Ejercicio2opt from 'pages/Ejercicio2opt';
+import Ejercicio3 from 'pages/Ejercicio3';
 
 
 function App() {
@@ -44,9 +45,12 @@ function App() {
             </Switch>
           </AuthLayout>
         </Route>
-        <Route path={['/']}>
+        <Route path={['/', '/ejercicio2', '/ejercicio2opt', '/ejercicio3']}>
           <PublicLayout>
             <Switch>
+              <Route path='/ejercicio3'>
+                <Ejercicio3 />
+              </Route>
               <Route path='/ejercicio2'>
                 <Ejercicio2 />
               </Route>
