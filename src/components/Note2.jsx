@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Note2 = ({ title, body }) => {
+export const Note2 = ({ content, date }) => {
     return (
         <li>
-            <h1 className='font-bold'>{title}</h1>
-            <p>{body}</p>
+            <h1 className='font-bold'>{content}</h1>
+            <small className='block'>{date}</small>
             <br />
         </li>
     )

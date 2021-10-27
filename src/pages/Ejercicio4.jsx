@@ -91,8 +91,8 @@ const Ejercicio4 = () => {
 
 
     return (
-        <div>
-            <h1 className='font-extrabold'>Notes</h1><br />
+        <div className='mx-4'>
+            <h1 className='font-extrabold text-3xl'>Notes</h1><br />
             {loading ? "Cargando" : ""}
             {notas
                 .map(note => {
@@ -111,7 +111,7 @@ const Ejercicio4 = () => {
                 onClick={handleClick}>
                     Crear nota
                 </button> */}
-                <button className='bg-yellow-400 px-2 rounded-md my-2'>Crear venta</button>
+                <button className='bg-yellow-400 px-2 rounded-md my-2'>Crear nota</button>
             </form>            
             {error ? error : ''}
         </div>

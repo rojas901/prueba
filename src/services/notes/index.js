@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const base = 'http://localhost:3001/api/notes'
+
 export const getAllNotes = () => {
     return(
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get(base)
         .then(response => {
             const {data} = response
             return data
